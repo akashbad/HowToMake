@@ -1,0 +1,41 @@
+---
+layout: default
+title: "Week 0: Final Project Proposal"
+image: "week0/thin.jpg"
+image-base: "/assets/images/week0/"
+---
+
+Bluetooth Pocket Boombox
+========================
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}thin.jpg" alt="concept superthin boombox" /></div>
+</div>
+<br />
+
+My first idea is to create a pocket sized boombox that will connect to my phone via bluetooth. I have always wanted something I could carry around either in my wallet or about the size of my wallet that would be able to play music out loud and act as a speaker for conference calls. Imagine how cool it would be to pull a speaker out of your pocket and start playing music from your phone wherever you are.
+
+<div class="row">
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}boombox.png" alt="The prototype boombox with grill" /></div>
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}boombox_naked.png" alt="The prototype boombox without grill" /></div>
+</div>
+<br />
+
+I think the project would also be just challenging enough from a hardware perspective (having to navigate the nuances of bluetooth connectivity) and also very interesting from a design perspective. I could either take the super thin approach used by designer [Hannes Harms](http:\\hannesharms.com) in the first image, or something a bit thicker like the [Jawbone Jambox Mini](http:\\jawbone.com\speakers\minijambox). I am also considering adding LED's behind the speaker grill in order to add a little extra visual flair!
+
+Quadcopter
+==========
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}quadcopter.png" alt="concept quadcopter" /></div>
+</div>
+<br />
+
+My other idea would be to create a quadcopter from scratch. In particular I am interested in molding an interesting shell for the drone and then building the whole controller from scratch. Most DIY projects feature something like the [Ardupilot](http:\\ardupilot.com) which is an excellent solution combining sensors and the microcontroller itself along with some libraries for hooking things up and getting going quickly. I would be interested in tackling the configuration of the motion sensors with the microcontroller and then programming all of the algorithms myself.
+ 
+<div class="row">
+  <div class="col-md-4"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}quadcopter_proto.jpg" alt="A sample quadcopter" /></div>
+  <div class="col-md-4"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}quadcopter_diagram.png" alt="A diagram detailing how quadcopters work" /></div>
+  <div class="col-md-4"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}ardupilot.jpg" alt="The ardupilot module" /></div>
+</div>
+<br />

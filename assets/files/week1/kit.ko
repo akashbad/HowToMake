@@ -1,0 +1,101 @@
+#Script to Generate a Rhombus according to a Pre-defined Edge Length
+import math
+from koko.lib.shapes2d import *
+from koko.lib.shapes3d import *
+
+#Select Display Mode
+mode = 'cut_sheet'
+mode = 'assembled'
+mode = 'test'
+
+#Modifiable Parameters
+side_length = 2.0
+thickness = 0.16
+slot_depth = 0.4
+offset = 0.1
+
+#layout parameters
+placement_offset = 0.25
+document_width = 30
+document_height = 24
+rhombus_number = 100
+connector_number = 200
+
+#Derived Variables
+border_height = side_length*2.0/math.sqrt(3.0)
+border_width = border_height*math.sqrt(2.0)
+acute_angle = math.degrees(math.acos(1/3.0))
+obtuse_angle = 180.0-acute_angle
+dihedral_angle = 120.0
+
+#Build the rhombus from 2 triangles
+rhombus = triangle(-border_width/2.0, 0, 0, border_height/2.0, 0, -border_height/2.0) + triangle(border_width/2.0, 0, 0, -border_height/2.0, 0, border_height/2.0)
+
+#Create slots to cut out of the rhombus
+#The slot contains a hole to lock connectors into place
+slot = slot(0,0,thickness,slot_depth,0)
+
+#cut the slots out of the rhombus
+rhombus -= move(rotate(slot,-acute_angle/2),border_width/4, border_height/4)
+rhombus -= move(rotate(slot,acute_angle/2),-border_width/4, border_height/4)
+rhombus -= move(rotate(slot,180-acute_angle/2),-border_width/4, -border_height/4)
+rhombus -= move(rotate(slot,180+acute_angle/2),border_width/4, -border_height/4)
+
+#Create the connector
+connector_length = slot_depth+offset
+connector = rectangle(0,connector_length,0,thickness*4)
+connector -= rectangle(0,slot_depth,thickness*3/2, thickness*5/2)
+
+connector = move(connector,-connector_length,0)
+connector += move(rotate(connector,-120),0,thickness*4)
+connector += triangle(0,thickness*4,thickness*2*math.sqrt(3.0),thickness*2,0,0)
+connector = move(connector, connector_length,0)
+
+if(mode == 'cut_sheet'):
+  cad.render_mode = '2D'
+  rhombus_pair = move(rhombus,border_width/2.0,border_height/2.0) + move(rhombus, border_width + placement_offset/2, -placement_offset/2)
+  rhombus_row = rhombus_pair
+  rhombus_row_length = int(document_width/(border_width+placement_offset))
+  for i in range(1,rhombus_row_length):
+    rhombus_row += move(rhombus_pair, (border_width + placement_offset)*i,0) 
+  rhombus = rhombus_row
+  for i in range(1, int(math.ceil(rhombus_number/2/rhombus_row_length))):
+    rhombus += move(rhombus_row, 0, -(border_height + placement_offset)*i) 
+  connector = move(connector, 0, -(border_height+placement_offset)*(rhombus_number/2/rhombus_row_length))
+  connector_row = connector
+  connector_row_length = int(document_width/(connector_length*2.0+placement_offset*2.0))
+  for i in range(1,connector_row_length):
+    connector_row += move(connector,(connector_length*2.0+placement_offset*2.0)*i,0)
+  connector = connector_row
+  for i in range(1,int(connector_number/connector_row_length)):
+    connector += move(connector_row, 0, -(thickness+placement_offset*2.0+connector_length)*i)
+
+elif(mode== 'assembled'):
+  cad.render_mode = '3D'
+  rhombus = extrusion(rhombus,0,thickness)
+  next_rhombus = move(rotate(rotate_x(move(rotate(move(rhombus,0, border_height/2),acute_angle/2),side_length/2,0,-thickness/2),180-dihedral_angle),-90),thickness*math.sqrt(3)/2,0,thickness*3/2.0)
+  other_rhombus = move(rotate(rotate_x(move(rotate(move(rhombus,0, border_height/2),-acute_angle/2),-side_length/2,0,-thickness/2),180-dihedral_angle),-90),thickness*math.sqrt(3)/2,0,thickness*3/2.0)
+  rhombus += move(rotate_z(next_rhombus, 180-obtuse_angle/2),-border_width/4.0,border_height/4.0,-thickness/2.0)
+  rhombus += move(rotate_z(other_rhombus, obtuse_angle/2),border_width/4.0,border_height/4.0,-thickness/2.0)
+
+  connector = extrusion(connector,0,thickness)
+  connector = rotate_x(connector,90)
+  connector = move(connector, -connector_length, thickness/2.0)
+  connector = move(rotate_z(connector, obtuse_angle/2),border_width/4.0,border_height/4.0,-thickness/2.0) + move(rotate_z(connector, 180-obtuse_angle/2),-border_width/4.0,border_height/4.0,-thickness/2.0)
+  rhombus += rotate(rhombus,180)
+  connector += rotate(connector,180)
+  rhombus = move(rhombus, 0,0, -border_width/2.0-thickness)
+  connector = move(connector, 0,0, -border_width/2.0-thickness)
+  rhombus += rotate_x(rhombus,180)
+  connector += rotate_x(connector,180)
+
+elif(mode=='test'):
+  cad.render_mode = '2D'
+  rhombus = move(rhombus,border_width/2.0,border_height/2.0) 
+  connector = move(connector, border_width, 0)
+
+#Final setup to display
+cad.mm_per_unit = 25.4
+cad.shapes = (
+  color(rhombus,'yellow'),
+  color(connector,'cyan'),)

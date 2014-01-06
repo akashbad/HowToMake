@@ -1,0 +1,71 @@
+---
+layout: default
+title: "Week 8: Composites"
+image: "week8/final.jpg"
+image-base: "/assets/images/week8/"
+download-base:  "/assets/files/week8/"
+---
+
+Introduction
+============
+
+This week we got to investigate a process I had never heard of before, composite layup. This is the process by which a lot of very strong and light materials like fiberglass or composites are made. The process basically consists of taking sheets of fibers and laying them on top of one another and compressing them with a resin. The fibers provide tensile strength while the compression and the resin produce compressive strength. The material we had access to was burlap, which is pretty cheap and makes a decent composite layup without some of the health concerns associated with carbon fiber or fiber glass.
+
+Design
+======
+
+<div class="row">
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}milled.jpg" alt="the cutout piece of mdf with the shotglass in the top" /></div>
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}cutout.jpg" alt="the cutout pieces of burlap in the laser printer" /></div>
+</div>
+<br />
+
+As far as designing a volcano goes, its about the simplest thing to cad, feel free to download the solidworks files below in order to make one of your own. Instead of using the provided foam, I used a piece of mdf I found, which would allow me to make more composites from the same mold, and had a little more height. I also designed a cutout for the burlap to wrap the surface, which was laser cut to speed up the process of making a bunch of these.
+
+<br />
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Download Files</h3>
+      </div>
+      <div class="panel-body"><a href="{{ site.baseurl }}{{ page.download-base }}shotcano.zip">Shotcano Design Files</a></div>
+    </div>
+  </div>
+</div>
+
+Layup
+=====
+
+The next step was laying up the actually composites on the mdf mold. This process was pretty well laid out: cut out burlap, wet with epoxy, layup on the mold, layup with plastic wrap and bleeder/breather layers. Finally you place everything in the vacuum bag and it compresses everything so the cure is nice.
+
+<div class="row">
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}setup_left.jpg" alt="The left side of the setup space" /></div>
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}setup_right.jpg" alt="The right side of the setup space" /></div>
+</div> 
+<br />
+
+I went through the whole process with no real problems and set it to dry in the vacuum bag. I also used an actual shotglass as the plug to prevent the burlap from bridging the crater of the volcano.
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}vacuum.jpg" alt="the piece in the vacuum bag" /></div>
+</div>
+<br />
+
+Demolding
+=========
+
+Demolding was a little more of a challenge than I expected it to be. As instructed, I waxed and sprayed the mdf with mold-release but I don't think that was enough to actually prevent the burlap from sealing to the mdf. The result meant that the shotglass was really really hard to dig out of the piece and eventually only came out after prying at it with a knife. Getting the piece itself off was even more of a challenge. I was able to use a ziptie to pry the entire outer shell off but the crater was stuck in there. After some bending, twisting and a lot of effort I got it off. Needless to say I'm going to be more proactive about demolding steps when I do this again.
+
+<div class="row">
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}demold.jpg" alt="the removed part with some batting stuck in it" /></div>
+  <div class="col-md-6"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}shotcano.jpg" alt="the final piece after demolded" /></div>
+</div>
+<br />
+
+In any case the final piece was awesome and fit the shotglass really well. I&#39;m already starting to make more so hopefully I will have 6 by the time I need to cook my meal!
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}final.jpg" alt="the final set of pieces" /></div>
+</div>
+<br />

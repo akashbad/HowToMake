@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Week 12: Interface and Application Programming"
+image: "week12/final.jpg"
+image-base: "/assets/images/week12/"
+download-base:  "/assets/files/week12/"
+---
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}final.jpg" alt="flash ui" /></div>
+</div>
+<br />
+
+Flash Interface
+===============
+
+This week the project was software focused because of the long Thanksgiving weekend. Specifically we were tasked with implementing an interface using some set of coding tools. Because of my deep background in computer science and having a lot of work to do on my final project (and all my other classes around this time of year) I decided to make something really simple just for the assignment rather than trying something interesting. I decided to use the simple bus circuit I made in the networking week (Neil's example) and to build a simple UI where you could click one of the buttons and simultaneously mimic the effect on screen and send the message to the bus. I had never made a UI in python before but a quick scan of Neil's term.py code and a little bit of research in to TKinter allowed me to whip up the interface above in about 30 minutes. You can download the source code for the python app and the bus nodes below.
+
+<br />
+<div class="row">
+<div class="col-md-6 col-md-offset-3"> 
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Download Files</h3>
+    </div> 
+    <div class="panel-body"><a href="{{ site.baseurl }}{{ page.download-base }}flash.zip">Flash Interface Files</a></div>
+  </div>
+</div>
+</div>
+
+Final Project Update
+====================
+
+I spent the majority of my time this week working on ramping up for my final project. I started by taking stock of my current progress and the laying out all of the pieces that needed to be done. I then went about ordering the correct parts and setting a schedule for myself in the next two weeks. I also officially started documenting my progress so check out my planning more in depth on my [Final Project Page]({{ site.baseurl }}/final).

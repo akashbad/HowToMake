@@ -1,0 +1,8 @@
+name: Akash Makes (almost) Anything
+markdown: redcarpet
+pygments: true
+
+destination: ~/Documents/MIT/MAS.863/HTM/people/akashbad
+
+baseurl: http://fab.cba.mit.edu/classes/863.13/people/akashbad 
+permalink: /:title

@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Week 7: Embedded Programming"
+image: "week7/final.png"
+image-base: "/assets/images/week7/"
+download-base:  "/assets/files/week7/"
+---
+
+Introduction
+============
+
+This week we were given the task of programming the boards we built back in week 5 using a variety of different programming tools. I have a decent amount of experience with both [Arduino](http://arduino.cc) and microcontrollers in general, especially those in the AVR toolset, so this week wasn't as much of a learning curve as it might have been for other people. Because of that I decided to focus less on the tools and more on making something cool with my code. As I mentioned back in Week 5 my goal was to create a mini beatpad out of the two button and two light set up and I went on to implement that goal.
+
+Implementation
+==============
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}final.png" alt="coding in vim and using terminal" /></div>
+</div>
+<br />
+
+I decided to implement my code in good old-fashioned c and vim using the commandline to actually make and program the board. I didn't really run into any trouble with programming, it was simple enough to plug in the ISP from Week 2, hook it up to my board from Week 5, and execute the commands as laid out in class. I did have to make a new board (with a regulator on it) because using the 9V actually blew the chip.
+
+Coding up the mini beatpad was simple enough, I basically created a statemachine that would transition between recording and play modes and keep the patterns stored in two buffers as it went. The code works fine but it turns out the left button on the board has some noise or is broken because its producing a lot of random patterns. I could implement a software low-pass filter but instead I think I'll just replace the button since the right one seems to be working just fine.
+
+<div class="row">
+  <div class="col-md-7"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}board.jpg" alt="The new board with a regulator" /></div>
+  <div class="col-md-5"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}arduino.png" alt="The arduino environment" /></div>
+</div>
+<br />
+I also got the chance to follow the [tutorial on using arduino with ATTiny44](http://hlt.media.mit.edu/?p=1695) and programmed the simple blink procedure onto my board. Something is off with the timing between the arduino environment and the board because the blink ran about 5x slower than it should have. Either way its not super important because I intend to program in c for the rest of the class.
+
+<br />
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Download Files</h3>
+      </div>
+      <div class="panel-body"><a href="{{ site.baseurl }}{{ page.download-base }}beatpad.zip">Beatpad Program Files</a></div>
+    </div>
+  </div>
+</div>
+You can download all of the c and make files I used for the mini beat pad above, this also includes a shell script which will run the whole build and upload process too!

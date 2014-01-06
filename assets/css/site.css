@@ -1,0 +1,41 @@
+body{
+  padding-top: 70px;
+}
+
+.main{
+  -webkit-box-shadow: 0 0 5px 0 rgba(50,50,50,0.4);
+  -moz-box-shadow: 0 0 5px 0 rgba(50,50,50,0.4);
+  box-shadow: 0 0 5px 0 rgba(50,50,50,0.4);
+  margin-bottom: 50px;
+  background-color: white;
+}
+
+.post-box {
+  position: relative;
+  height: 200px;
+  margin: 0px 15px 15px 15px;
+  background-position: center center;
+}
+
+.post-box > a {
+  width: 100%;
+  line-height: 200px;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+  position: absolute;
+  text-align: center;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+.no-touch .post-box > a{
+  display: none;
+}
+
+.no-touch .post-box:hover > a {
+  display: block;
+}
+
+.img-responsive {
+  margin: auto;
+}

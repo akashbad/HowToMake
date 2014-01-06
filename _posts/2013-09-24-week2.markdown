@@ -1,0 +1,83 @@
+---
+layout: default
+title: "Week 2: Electronics Production"
+image: "week2/final.jpg"
+image-base: "/assets/images/week2/"
+download-base: "/assets/files/week2/"
+---
+
+Introduction
+============
+
+This week our task was to assemble an ISP ([In-System Programmer](http://en.wikipedia.org/wiki/In-system_programming)) in order to be able to program future electronics boards we might make in the class. In the process of creating this useful tool, we had to learn how to mill, stuff and program a PCB (printed circuit board). I have already made a couple of PCB's of my own, but each time they have been sent off to manufacturers to be etched, instead of milled. This project gave me a good opportunity to learn how to use the modela mill.
+
+Design
+======
+
+Given the importance of having a working ISP for later in the term and the relative complexity of completing all 3 steps, we were given much less creative freedom this week and asked to use one of 3 designs for the board. I decided to go with [Andy's Design](http://fab.cba.mit.edu/content/projects/fabispkey/index.html) because it had the usb component built right in.
+
+<div class="row">
+  <div class="col-md-6"><img src="{{ site.baseurl }}{{ page.image-base }}andy_traces.png" class="img-responsive" alt="Andy's FABISPKey Traces" /></div>
+  <div class="col-md-6"><img src="{{ site.baseurl }}{{ page.image-base }}andy_interior.png" class="img-responsive" alt="Andy's FABISPKey Outline" /></div>
+</div>
+
+Milling
+=======
+
+I got right into milling on Friday and found it quite easy to run Andy's files through the Fab Modules to generate the correct traces. The traces were a bit small for my liking but they worked just fine. I did run into one error where the machine had a hard time cutting through the board in one corner, but I increased the cut depth and the problem was solved.
+ 
+<div class="row">
+  <div class="col-md-4"><img src="{{ site.baseurl }}{{ page.image-base }}mid_mill.jpg" class="img-responsive" alt="Midway through milling" /></div>
+  <div class="col-md-4"><img src="{{ site.baseurl }}{{ page.image-base }}pre_clean.jpg" class="img-responsive" alt="Before Cleaning the Finished Board" /></div>
+  <div class="col-md-4"><img src="{{ site.baseurl }}{{ page.image-base }}done_mill.jpg" class="img-responsive" alt="After the board was ready to cut" /></div>
+</div>
+
+Stuffing
+========
+
+Stuffing, or soldering on the components, of the board was the next step. I've had a good amount of experience soldering boards before so this wasn't too difficult and the surface mount components were pretty easy to handle. 
+
+<div class="row">
+  <div class="col-md-6"><img src="{{ site.baseurl }}{{ page.image-base }}pre_stuff.jpg" class="img-responsive" alt="The board before stuffing" /></div>
+  <div class="col-md-6"><img src="{{ site.baseurl }}{{ page.image-base }}mid_stuff.jpg" class="img-responsive" alt="The board mid-way through stuffing" /></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-6 col-md-offset-3"><img src="{{ site.baseurl }}{{ page.image-base }}done_stuff.jpg" alt="The board with all components" /></div>
+</div>
+
+Programming
+===========
+
+Programming these boards involves installing AVR tools onto your computer. If you have a Mac you can install the tools with [Cross Pack](http://obdev.at/products/crosspack/index.html) provided you have already installed Xcode Command Line tools. 
+
+<br />
+<div class="row">
+<div class="col-md-6 col-md-offset-3"> 
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Download Files</h3>
+    </div> 
+    <div class="panel-body"><a href="{{ site.baseurl}}{{ page.download-base }}firmware.zip">ISP Firmware Files</a></div>
+  </div>
+</div>
+</div>
+
+Then we take Neil's firmware package (included above). If you have another programmer then you can install the files onto the ISP key by following these steps:
+
+1. Plug the key into USB for power
+2. Connect the other programmer to the computer and via the 6-Pin connector to your board
+3. Navigate to the unzipped firmware folder and execute the following in terminal
+    
+         make clean
+         make hex
+         sudo make fuse
+          *Respond no to the prompt*
+         sudo make program
+
+If all of that succeeds you should have a functioning programmer and should see the FabISP in your devices list as connected to your usb port. You can now use the isp in the same manner to program other boards with different firmware. *Make sure to de-solder the two jumpers to take your ISP key out of programming mode and create a cable to connect 6-Pin connectors together.*
+
+<div class="row">
+  <div class="col-md-12"><img class="img-responsive" src="{{ site.baseurl }}{{ page.image-base }}final.jpg" alt="The final product" /></div>
+</div>
+<br />

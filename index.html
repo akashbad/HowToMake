@@ -1,0 +1,14 @@
+---
+layout: default
+title: Akash Badshah Makes (almost) Anything
+---
+
+{% for post in site.posts reversed %}
+  <div class="row">
+    <div class="post-box" style="background-image: url('{{ site.baseurl }}/assets/images/{{ post.image }}')">
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </div>
+  </div>
+{% endfor %}
